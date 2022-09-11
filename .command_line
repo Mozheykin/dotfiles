@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+
+while true; do
+		LOCALTIME=$(date '+%D %R')
+
+		MEM=$(echo $(free -h --kilo | awk '/^Mem:/ {print $3 "/" $2}'))
+		CPU=$(echo "CPU: "$[100-$(vmstat 1 2|tail -1|awk '{print $15}')]"%")
+
+	xsetroot -name "[RAM: $MEM] [$CPU] [$LOCALTIME]"
+	sleep 5s
+done &
