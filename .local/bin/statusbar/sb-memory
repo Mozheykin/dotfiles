@@ -1,0 +1,2 @@
+#!/bin/sh
+echo "[MEM: "$(free -h --kilo | awk '/^Mem:/ {print $3 "/" $2}')"]"

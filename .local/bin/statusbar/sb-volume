@@ -1,0 +1,3 @@
+#!/bin/sh
+
+echo "[V: "$(amixer get Master | grep 'Mono:' | awk -F'[][]' '{ print $2 }')"]"
