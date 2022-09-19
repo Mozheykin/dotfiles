@@ -483,8 +483,9 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "firefox", .tags = 1 << 1)
+	RULE(.class = "firefox-esr", .tags = 1 << 1)
 	RULE(.class = "obsidian", .tags = 1 << 4)
+  RULE(.class = "code", .tags = 1 << 2)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -860,6 +861,7 @@ static const char *termcmd[]  = { "sakura", NULL };
 static const char *firefoxcmd[] = {"firefox", NULL};
 static const char *obsidiancmd[] = {"obsidian", NULL};
 static const char *telegramcmd[] = {"telegram-cli", NULL};
+static const char *codecmd[] = {"code", NULL};
 static const char *openvpnconnect[] = {"bash", "/home/legal/my.sh", NULL};
 //static const char *upvol[]   = { "pactl", "set-sink-volume", "0", "+5%",     NULL };
 //static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL };
@@ -904,6 +906,7 @@ static const Key keys[] = {
 	{ Mod1Mask|ControlMask,         XK_t,          spawn,                  {.v = termcmd } },
 	{ Mod1Mask|ControlMask,         XK_f,          spawn,                  {.v = firefoxcmd } }, 
 	{ Mod1Mask|ControlMask,         XK_o,          spawn,                  {.v = obsidiancmd } },
+  { Mod1Mask|ControlMask,         XK_c,          spawn,                  {.v = codecmd} },
 	{ 0,                            0x1008ff11,    spawn,                  {.v = downvol } },
 	{ 0,                            0x1008ff12,    spawn,        	       {.v = mutevol } },
 	{ 0,                            0x1008ff13,    spawn,                  {.v = upvol} },
