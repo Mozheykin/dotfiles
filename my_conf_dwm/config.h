@@ -870,8 +870,8 @@ static const char *screenshot[] = {"flameshot", "gui", NULL};
 static const char *upvol[] = { "amixer", "-D", "pulse", "sset", "Master", "5%+", NULL };
 static const char *downvol[] = { "amixer", "-D", "pulse", "sset", "Master", "5%-", NULL };
 static const char *mutevol[] = { "amixer", "-D", "pulse", "sset", "Master", "toggle", NULL };
-static const char *lightup[] = {"sudo light", "-A", "5", NULL};
-static const char *lightdown[] = {"sudo light", "-U", "5", NULL};
+static const char *lightup[] = {"bash", "/home/legal/.local/bin/statusbar/light-up.sh", NULL};
+static const char *lightdown[] = {"bash", "/home/legal/.local/bin/statusbar/light-dn.sh", NULL};
 
 #if BAR_STATUSCMD_PATCH
 #if BAR_DWMBLOCKS_PATCH
@@ -907,12 +907,12 @@ static const Key keys[] = {
 	{ Mod1Mask|ControlMask,         XK_t,          spawn,                  {.v = termcmd } },
 	{ Mod1Mask|ControlMask,         XK_f,          spawn,                  {.v = firefoxcmd } }, 
 	{ Mod1Mask|ControlMask,         XK_o,          spawn,                  {.v = obsidiancmd } },
-  { Mod1Mask|ControlMask,         XK_c,          spawn,                  {.v = codecmd} },
+  	{ Mod1Mask|ControlMask,         XK_c,          spawn,                  {.v = codecmd} },
 	{ 0,                            0x1008ff11,    spawn,                  {.v = downvol } },
 	{ 0,                            0x1008ff12,    spawn,        	       {.v = mutevol } },
 	{ 0,                            0x1008ff13,    spawn,                  {.v = upvol} },
-	{ 0,                            0x1008ff02,    spawn,	               {.v = lightup} },
-	{ 0,                            0x1008ff03,    spawn,	               {.v = lightdown} },
+	{ Mod1Mask|ControlMask,         0xff53,        spawn,	               {.v = lightup} },
+	{ Mod1Mask|ControlMask,         0xff51,        spawn,	               {.v = lightdown} },
 	{Mod1Mask|ControlMask,          XK_m,          spawn,                  {.v = telegramcmd} },
 	{MODKEY,                        XK_o,          spawn,                  {.v = openvpnconnect} },
 	{Mod1Mask|ControlMask,          XK_x,          spawn,                  {.v = screenshot} },
