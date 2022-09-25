@@ -483,9 +483,9 @@ static const Rule rules[] = {
 	RULE(.wintype = WTYPE "TOOLBAR", .isfloating = 1)
 	RULE(.wintype = WTYPE "SPLASH", .isfloating = 1)
 	RULE(.class = "Gimp", .tags = 1 << 4)
-	RULE(.class = "firefox-esr", .tags = 1 << 1)
+	RULE(.class = "Firefox-esr", .tags = 1 << 1)
 	RULE(.class = "obsidian", .tags = 1 << 4)
-  RULE(.class = "code", .tags = 1 << 2)
+  	RULE(.class = "Code", .tags = 1 << 2)
 	#if RENAMED_SCRATCHPADS_PATCH
 	RULE(.instance = "spterm", .scratchkey = 's', .isfloating = 1)
 	#elif SCRATCHPADS_PATCH
@@ -863,6 +863,7 @@ static const char *obsidiancmd[] = {"obsidian", NULL};
 static const char *telegramcmd[] = {"telegram-cli", NULL};
 static const char *codecmd[] = {"code", NULL};
 static const char *openvpnconnect[] = {"bash", "/home/legal/my.sh", NULL};
+static const char *screenshot[] = {"flameshot", "gui", NULL};
 //static const char *upvol[]   = { "pactl", "set-sink-volume", "0", "+5%",     NULL };
 //static const char *downvol[] = { "pactl", "set-sink-volume", "0", "-5%",     NULL };
 //static const char *mutevol[] = { "pactl", "set-sink-mute",   "0", "toggle",  NULL };
@@ -913,7 +914,8 @@ static const Key keys[] = {
 	{ 0,                            0x1008ff02,    spawn,	               {.v = lightup} },
 	{ 0,                            0x1008ff03,    spawn,	               {.v = lightdown} },
 	{Mod1Mask|ControlMask,          XK_m,          spawn,                  {.v = telegramcmd} },
-	{ MODKEY,                       XK_O,          spawn,                  {.v = openvpnconnect} },
+	{MODKEY,                        XK_o,          spawn,                  {.v = openvpnconnect} },
+	{Mod1Mask|ControlMask,          XK_x,          spawn,                  {.v = screenshot} },
 
 	#if RIODRAW_PATCH
 	{ MODKEY|ControlMask,           XK_d,          riospawnsync,           {.v = dmenucmd } },
